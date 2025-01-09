@@ -1,0 +1,195 @@
+<div class="row">
+  <div class="col-8">
+    <div class="card">
+      <div class="card-header bg-success">Client List</div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-12">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Client Id</th>
+                  <th>Person Name</th>
+                  <th>Company Name</th>
+                  <th>Contact Number</th>
+                  <th>City</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for(item of clientList;track $index) {
+                <tr>
+                  <!-- <tr *ngFor="let item of clientList"> -->
+                  <td>{{ item.clientId }}</td>
+                  <td>{{ item.contactPersonName }}</td>
+                  <td>{{ item.companyName }}</td>
+                  <td>{{ item.contactNo }}</td>
+                  <td>{{ item.city }}</td>
+                  <td>
+                    <button
+                      class="btn btn-warning"
+                      (click)="editClient($index)"
+                    >
+                      Edit
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      class="btn btn-danger"
+                      (click)="deleteClient($index)"
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="card">
+      <div class="card-header bg-success">New Client</div>
+      <div class="card-body">
+        <form>
+          <div class="row">
+            <div class="col-6">
+              <label for="contactPersonName">Person Name</label>
+              <input
+                minlength="3"
+                #personName="ngModel"
+                name="contactPersonName"
+                required
+                type="text"
+                [(ngModel)]="clientObj.contactPersonName"
+                class="form-control"
+              />
+              @if(personName.errors && personName.dirty){
+              <div class="text-danger">
+                <span>this field is required.</span>
+              </div>
+              }
+            </div>
+            <div class="col-6">
+              <label for="companyName">Company Name</label>
+              <input
+                type="text"
+                name="companyName"
+                [(ngModel)]="clientObj.companyName"
+                class="form-control"
+              />
+            </div>
+            <div class="col-6">
+              <label for="address">Address</label>
+              <textarea
+                class="form-control"
+                name="address"
+                [(ngModel)]="clientObj.address"
+                rows="3"
+              ></textarea>
+            </div>
+            <div class="col-6">
+              <label for="city">City</label>
+              <input
+                type="text"
+                name="city"
+                class="form-control"
+                [(ngModel)]="clientObj.city"
+              />
+            </div>
+            <div class="col-6">
+              <label for="pincode">PinCode</label>
+              <input
+                type="text"
+                name="pincode"
+                class="form-control"
+                [(ngModel)]="clientObj.pincode"
+              />
+            </div>
+            <div class="col-6">
+              <label for="state">State</label>
+              <input
+                type="text"
+                name="state"
+                class="form-control"
+                [(ngModel)]="clientObj.state"
+              />
+            </div>
+            <div class="col-6">
+              <label for="EmployeeStrength">Employee Strength</label>
+              <input
+                type="text"
+                name="EmployeeStrength"
+                class="form-control"
+                [(ngModel)]="clientObj.EmployeeStrength"
+              />
+            </div>
+            <div class="col-6">
+              <label for="gstNo">gesture number</label>
+              <input
+                type="text"
+                name="gstNo"
+                class="form-control"
+                [(ngModel)]="clientObj.gstNo"
+              />
+            </div>
+            <div class="col-6">
+              <label for="contactNo">Contact Number</label>
+              <input
+                type="text"
+                name="contactNo"
+                class="form-control"
+                [(ngModel)]="clientObj.contactNo"
+              />
+            </div>
+            <div class="col-6">
+              <label for="regNo">Registration Number</label>
+              <input
+                type="text"
+                name="regNo"
+                class="form-control"
+                [(ngModel)]="clientObj.regNo"
+              />
+            </div>
+          </div>
+        </form>
+        <div class="row">
+          <div class="col-6 text-center">
+            <button class="btn btn-secondary" (click)="reset()">Reset</button>
+          </div>
+          <div class="col-6 text-center">
+            <button class="btn btn-success" (click)="saveClient()">
+              Save Client
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{ modalTitle }}</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <p>{{ modalBody }}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Ok
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

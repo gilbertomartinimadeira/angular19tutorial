@@ -1,0 +1,82 @@
+<p>roles works!</p>
+
+<div class="row">
+  <div class="col-12">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Role Id</th>
+          <th>Role Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let role of roleList; let srno = index">
+          <td>{{ role.roleId }}</td>
+          <td>{{ role.role }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- <div class="row">
+  <div class="col-4">
+    <ul>
+      <li *ngFor="let r of roleList">{{ r.role }}</li>
+    </ul>
+  </div>
+  <div class="col-4">
+    <select>
+      <option *ngFor="let r of roleList" [value]="r.roleId">
+        {{ r.role }}
+      </option>
+    </select>
+  </div>
+  <div class="col-4">
+    <button class="btn btn-warning mx-2" *ngFor="let r of roleList">
+      {{ r.role }}
+    </button>
+  </div>
+</div> -->
+
+<!-- <div class="row">
+    <div class="col-3">
+        <p>{{ firstName }}</p>
+    </div>
+    <div class="col-3">
+        <p>angular version: {{ angularVersion }}</p>
+    </div>
+    <div class="col-3">
+        <p>is active? {{ isActive }}</p>
+    </div>
+    <div class="col-3">
+        <p>currentDate:  {{ currentDate.toLocaleDateString() }}</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        <input type="text" [value]="firstName" placeholder="some text" >
+    </div>
+    <div class="col-3">
+        <input type="text" [(ngModel)]="firstName">
+    </div>
+    <div class="col-3">
+        <input [type]="inputType" (click)="showMessage(selectedState)">
+    </div>
+
+    <div class="col-3">
+        {{ selectedState}}
+    </div>
+    <div class="col-3">
+        <select [(ngModel)]="selectedState">
+            <option value="MH">MH</option>
+            <option value="MP">MP</option>
+            <option value="GOA">GOA</option>
+        </select>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        <button class="btn btn-warning" (click)="onBtnClick()">Show Alert</button>
+    </div>
+</div> -->
